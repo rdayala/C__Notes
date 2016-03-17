@@ -13,6 +13,8 @@ Flowcharts are a great way to create a visual representation of our program.
     Data - trapezium
     Files - 
     
+  Example : Cash register at a grocessory store. Start with scanning an item, add item cost to the total, check for more items, report total.
+    
 UML diagrams provide a visual representation, of any classes we need to create.
 
 
