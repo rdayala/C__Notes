@@ -1,0 +1,22 @@
+
+Flowcharts are a great way to create a visual representation of our program.
+
+  Forces us to break our program into pieces.
+  This shows us the processes needed to create our solution.
+  From these flowcharts, we can start to encapsulate portions of our code into smaller functions.
+  
+  Symbols:
+  
+    Circle - start/end of the process.
+    Rectangle - action or the process to do
+    Diamond - decision, either true or false
+    Data - trapezium
+    Files - 
+    
+UML diagrams provide a visual representation, of any classes we need to create.
+
+
+Algorithm - is a list of steps needed to solve a problem.
+
+
+
