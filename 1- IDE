@@ -1,0 +1,37 @@
+There are many environments available.
+
+Either u can use:
+
+  Eclipse IDE for C/C++ Developers ( Free, open source download)
+    
+    download it from, eclipse.org 
+    
+  Microsoft Visual Studio.
+  
+--->
+
+To use Eclipse, we need three things:
+  
+  1. JRE
+  2. GNU GCC compiler
+  3. Eclipse with CDT, C++ Development Tools
+  
+Checking if JRE is installed or not?
+
+  go to java.com --> click on Do I have Java? link 
+  
+--->
+Downloading GCC compiler :
+
+  www.equation.com
+    --> choose Programming Tools -> chose Fortran, C, C++ -> here you can chose the software to download.
+    
+  On windows, when installing choose directory as C:\MinGW, this is because it's the default directory that the Eclipse IDE is going to look for the compiler.
+  
+Installing Eclipse with CDT:
+
+  http://goo.gl/CzckWp
+  
+
+  
+
