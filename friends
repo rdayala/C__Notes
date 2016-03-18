@@ -1,0 +1,76 @@
+
+Friend functions
+Friend classes
+
+Friend Functions:
+-------------------
+
+  It can access the private members of a class as though it were a member of that class.
+  In all other regards, the friend function is just like a normal function.
+  
+  A friend function may be either a normal function, or a member function of another class.
+  
+  To declare a friend function, simply use the friend keyword in front of the prototype of the function 
+  you wish to be a friend of the class.
+  
+  *** It does not matter whether you declare the friend function in the private or public section of the class.
+  
+  Once a function is declared friend of a class then it gets access to all the members of the class.
+  
+  Since a friend function violates the encapsulation property of its friend class, the large-scale usage of 
+  friend functions will degrade the overall OOP system. 
+  
+  In fact, the usage of friend functions in a program indicates a definite design error. 
+  Therefore, “a friend function is not a friend but a foe”.
+  
+  Friend function violates the OOP ideology in the sense that it is an outsider but has access to all the members of a class.
+  
+***
+“If you are requested to let a function be friend of your class, this indicates that the object’s interface is poor. 
+Try to change the interface instead of allowing the friendship”.
+
+  A member function of a class can also act as a friend of another class. 
+  However, in this case the name of the friend function has to be qualified by the name of its corresponding class.
+  
+*** Friend function can act as bridge between two classes.
+A function can declared as friend to both the classes and due to this friendship,
+it has access to the members of both the classes. 
+
+*********** However, in this arrangement one of the classes has to be declared as prototype before the other class.
+This type of class declaration is also known as forward class declaration.
+
+A programmer should follow the following guidelines for the usage of friend function:
+
+    Do not allow friend functions so easily. Use such a function in extreme conditions.
+    A friend function may be allowed for operations related to public interface of the class.
+    The friend function should not be allowed outside the team working on the project.
+
+
+Friend classes
+-----------------
+
+  It is also possible to make an entire class a friend of another class. 
+  This gives all of the members of the friend class access to the private members of the other class.
+  
+  Even though class A is friend of class B, class A has no direct access to the *this pointer of class B.
+  
+  Just because class A is friend of class B, that does not mean class B is also a friend of class A.
+  If you want two classes to be friends of each other, both must declare the other as a friend.
+  
+  if class A is a friend of B, and B is a friend of C, that does not mean A is a friend of C.
+  
+*******
+Notes:
+*******
+
+Note that making a class a friend only requires as forward declaration that the class exists. 
+
+However, making a specific member function a friend requires 
+the full declaration for the class of the member function to have been seen first.
+
+
+However, a better solution would have been to put each class declaration in a separate header file, 
+with the function bodies in corresponding .cpp files. That way, all of the class declarations 
+would have been visible immediately, and no rearranging of classes or functions would have been necessary.
+
+  
