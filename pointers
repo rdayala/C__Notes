@@ -1,0 +1,182 @@
+
+When a variable x is declared in a program, a storage location in the main memory is made available by the compiler.
+
+      int x;
+      x = 15;
+      
+      value of x = 15
+      address of x  = &x
+      
+    &x represents address of variable x.
+    
+  The * is an indirection operator or value at address operator.
+  
+      If the address of a variable is known, then the * operator provides the contents of the variable.
+      
+  x   --> value of x
+  &x  --> address of x
+  *(&x) -> value at address &x
+  
+Another example:
+
+    int a;
+    *&a = 50;
+    
+  Now 50 is stored in the variable called a.
+
+
+--->
+An address of a variable can be stored in a special variable called pointer variable. 
+A pointer variable contains the address of another variable.
+
+      int x = 15;
+      int *y;
+      
+      y = &x;
+
+      y is the variable that contains the address of another variable x.
+
+      *y gives value 15.
+  
+------>
+A pointer of float type will point to an address of 4 bytes of locations, and therefore 
+increment to this pointer will increment its contents by 4 locations. 
+
+It may be further noted more than one pointer can point to the same location.
+
+The pointers can be used for a variety of purposes in a program. Some of them are given below.
+
+    To pass address of variables from one function to another
+    To return more than one value from a function to the calling function
+    For the creation of linked structures such as linked lists and trees.
+
+
+----->
+Dangling Pointers:
+    
+    A dangling pointer is that pointer which has been created but does not point to any entity. 
+    Such an un-initialized pointer is dangerous in the sense that a dereference operation on it 
+    will result in an unpredictable operation or may result in a runtime error.
+
+Consider the following code:
+      int *ptr;
+      *ptr = 50;
+      
+  The first statement declares the pointer called ptr. It may be noted that currently ptr is a dangling pointer. 
+  The second statement is trying to load a value (i.e. 50) to a location that is pointed by ptr. 
+  
+  Obviously, this is a dangerous situation because the results will be unpredictable. 
+  The C++ compiler does not consider it as an error though some compilers may give a warning.
+
+---->
+Therefore, if pointers are being used, the following steps must be followed:
+
+Step 1. Declare the pointer.
+Step 2. Allocate the variable or entity to which the pointer is to be pointed.
+Step 3. Point the pointer to the entity.
+
+Let us assume that it is desired that the pointer ptr should point to a variable val of type int. 
+The correct code in that case would be as given below:
+      int *ptr;
+      int val;
+      ptr = &val;
+      *ptr = 50;
+      
+
+------>
+Pointers & Arrays
+
+      In C++, the name of an array is a pointer that contains the base address of the array. 
+      In fact, it is a pointer to the first element of the array.
+      
+    This array will be stored in the contiguous locations of the main memory.
+    
+        int list[] = { 20, 30, 35, 36, 39};
+      
+      list - name of array - points to address of first element of array
+      *list - value at zeroth element of array
+      
+          list == &list[0]
+          *list = list[0]
+        
+          *list = *(list + 0) = list[0]
+          *(list + 1) = list[1], so on...
+          
+------>
+
+Constant pointers: which cannot change address they are pointing to.
+            int *const ptr;
+            
+Pointer to a constant: which cannot change the value they are pointing to.
+            const int *ptr; 
+            
+            
+----->
+Array of Pointers:
+
+        float *x [20];
+          This declaration means that x is an array of 20 elements, and each element is a pointer to a variable of type float.
+          
+      
+      char *item [] = { "chair", "table", "stool", "desk" };
+          This declaration gives an array of pointers. Each element points to a string.
+      
+      char *ptr;
+      ptr = item[1];
+          Now both the pointers item[1] and ptr will point to the same string.
+          
+-------->
+Dynamic memory allocation:
+
+      new and delete operators.
+      
+      int *ptr;
+      ptr = new int;
+      
+      *ptr = 50;
+      
+      delete ptr;   // dynamic variable or memory is returned back to system. p becomes, dangling pointer.
+      
+
+------>
+void pointers :
+
+    Void pointer or generic pointer is a special type of pointer that can be pointed at objects of any data type. 
+    A void pointer is declared like a normal pointer, using the void keyword as the pointer’s type.
+    
+    void *v // defines a pointer of type void
+    
+    int ivar;
+    char chvar;
+    
+    v = &ivar; // valid
+    v = &chvar; //valid
+    
+    malloc() and calloc() return void * type and this allows these functions to be used 
+    to allocate memory of any data type (just because of void *) 
+    
+    int *x = (int *)malloc(sizeof(int) * n);
+    
+    void pointers cannot be dereferenced. ********
+            int a = 10;
+            void *ptr = &a;
+            
+            printf("%d", *ptr); // error
+            printf("%d", *(int *)ptr);
+    
+
+------>
+
+Null pointer is a special reserved value of a pointer. A pointer of any type has such a reserved value. 
+Formally, each specific pointer type (int *, char * etc.) has its own dedicated null-pointer value. 
+Conceptually, when a pointer has that null value it is not pointing anywhere.
+
+Void pointer is a specific pointer type - void * - a pointer that points to some data location in storage, 
+which doesn't have any specific type.
+
+So, once again, null pointer is a value, while void pointer is a type. 
+These concepts are totally different and non-comparable.
+
+      
+          
+  
