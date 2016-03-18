@@ -1,0 +1,47 @@
+
+
+Let us consider a situation wherein a programmer desires to have following functions in his/her program.
+
+    A function to compute area of a circle.
+    A function to compute area of a triangle.
+    A function to compute area of a rectangle.
+
+In a non-OOP language like ‘C’, the programmer will have to declare three functions with unique names 
+(say Area_Cir( ) Area_Tri( ), and Area_Rect( )) in his/her program. 
+
+After the functions have been declared, he/she has to remember their names and 
+history of related arguments for the computation of area for each trigonometric shape.
+
+--->
+C++ allows the programmer to give same name to more than one function having unique parameters. 
+
+**** Note that each function has unique parameter list in terms of number of arguments or types of arguments.
+
+For example, same name (areaShapes( )) has been given to following three different functions.
+
+    float areaShapes(int radius);
+    float areaShapes(int base, int height);
+    float areaShapes(float length, float width);
+
+The name of the function has been overburdened, i.e. it caters to many functions. 
+Therefore, this kind of polymorphism is called ‘Function name overloading’ or simply ‘Function overloading’.
+
+
+**** Each overloaded function must differ either by number of its formal parameters or their data types.
+
+    The return type of overloaded functions may or may not be same. - return type doesn't matter.
+    The default arguments of overloaded functions are not considered by the C++ compiler as part of the parameter list.
+    Do not use the same function name for two unrelated functions. 
+      This is against the basic philosophy of OOP and will be rated as a poor design.
+
+
+The pointer variable and array type are identical and cannot be considered as part of separate signatures. 
+For instance, the following overloading is invalid 
+      void testFunc(char *);
+      void testFunc(char []);
+      
+--->
+In fact the compiler matches the number and types of the actual arguments with the various signatures of 
+the overloaded functions. 
+
+A signature of the function is nothing but the header of the function declaration minus the return type.
