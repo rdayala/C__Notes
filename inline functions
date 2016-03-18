@@ -1,0 +1,80 @@
+
+A function is a set of instructions that can be called by another function by its name. 
+After the task is over, the control is transferred back to the calling function and the normal program flow continues. 
+
+***** In fact the code of a function is stored at one place and not duplicated anywhere. 
+It can be called as many times as needed in a program.
+
+The advantages of creating a function are given below:
+
+    The problem is divided into sub-programs called functions. Each function handles a smaller portion of the problem.
+    A function can be easily modified as compared to a whole program.
+    If the size of the function is large and it is frequently needed in the calling program then 
+    the overall size of the program reduces.
+    Debugging becomes easier.
+    The program becomes more understandable and manageable.
+
+However, a function call is a costly exercise as far as program execution time is concerned. 
+For instance, a function call involves the following activities to be carried out at lower level:
+
+    Save the return address on the stack.
+    Save the status of the various registers.
+    Transfer the control to the called function.
+    Pass the arguments to the called function.
+    Execute the code of the function body.
+    After the job is over, return the status of the registers.
+    Take care of the value returned from the called function.
+    Pick up the return address from the stack.
+    Transfer control to the return address.
+
+Thus a normal program will become slower in case a function is abstracted out of a program without any reason. 
+
+****** In fact, for very small functions, the function call overhead becomes significant and cannot be ignored 
+because it would adversely affect the performance of the program execution.
+
+---->
+C++ takes care of this tussle by providing inline functions. 
+The compiler substitutes the entire text of the inline function body into the calling program 
+for all instances of an inline function call.
+
+
+It may be noted that the size of the program has become larger after the compilation. 
+However, the overheads of function calls have been removed and therefore the program has become much faster than before.
+
+----->
+A keyword inline is used to declare an inline function.
+
+    The size of an inline function should be kept as very small.
+    The inline function should be defined before it is called in the program. This care should be taken to avoid compilation errors.
+    However, it should be defined in a header file if it is being called within a program made up of several source files.
+    The inline functions can also be overloaded.
+
+The benefits of inline functions are:
+
+    Eliminates function call overheads.
+    Improves program readability.
+    Programs run more efficiently.
+    
+---->
+The only drawback of inline functions is that they increase the size of the program. 
+
+
+It may be noted here that the C++ compiler handles the inline functions as true functions and, 
+therefore, there is no room for macro side effects.
+
+Let us consider the following macro named mult.
+
+    # define mult (a, b) (a*b);
+
+  If this macro is called as given below:
+
+    z = mult (10 + 2, 8);
+
+  the results are unexpected because the macroprocessor will do the text substitution as shown below:
+
+    z = (10 + 2 * 8);
+
+  This will evaluate 26 instead of desired 96. However an inline function is free from such side effects.
+
+---->
+It may be noted that a function declared and defined inside a class is by default considered as inline by the compiler of C++.
