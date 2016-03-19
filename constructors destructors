@@ -22,7 +22,16 @@
         destructors are the place where this memory is deallocated. Or 
         an object may need to close some files by releasing its handles which it had previously obtained.
     
+------>
+Copy Constructor:
+        class A {
+                    A(A &a) { .... } // here pass reference to the same class
+            }
 
+        usage:
+                A a2(a1); // will invoke copy constructor. It will copy the values of a1 to a2.
+                
+            
 The following restrictions apply to constructors and destructors :
 - Constructors and destructors don't return values.
 - The addresses of constructors and destructors can't be taken so we can't use references and pointers on them.
