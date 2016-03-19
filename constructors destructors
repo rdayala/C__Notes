@@ -1,0 +1,81 @@
+
+
+    Constructors are the member functions of the class that executes automatically whenever an object is created.
+        Constructors have the same name as the class. **
+        Constructors can’t have return type. ***
+    Constructors allocates space for an object and initializes it.
+    A class may have more than one constructor.
+    
+    
+    Destructors are usually used to deallocate memory and do other cleanup for a class object and 
+    its class members when the object is destroyed.
+    
+    A destructor is called for a class object when that object passes out of scope or is explicitly deleted.
+    
+    A destructor takes no arguments and has no return type. ******
+    
+    Destructor function has same name as that of a constructor; but the name is preceded by a tilde (‘~’) sign.
+    **** There's only one destructor for each object. ****
+    
+    Destructors are mainly useful for doing the clean up job. 
+        E.g. an object may have allocated some memory during its lifetime; 
+        destructors are the place where this memory is deallocated. Or 
+        an object may need to close some files by releasing its handles which it had previously obtained.
+    
+
+The following restrictions apply to constructors and destructors :
+- Constructors and destructors don't return values.
+- The addresses of constructors and destructors can't be taken so we can't use references and pointers on them.
+
+- Constructors cannot be declared with the keyword virtual. NO VIRTUAL CONSTRUCTORS.
+- Constructors and destructors cannot be declared static, const, or volatile.  
+
+Why not virtual constructors??
+      Virtual functions basically provide polymorphic behavior. That is, when you work with an object whose 
+      dynamic type is different than the static (compile time) type with which it is referred to, 
+      it provides behavior that is appropriate for the actual type of object instead of the static type of the object.
+
+      Now try to apply that sort of behavior to a constructor. 
+      When you construct an object the static type is always the same as the actual object type since:
+          To construct an object, a constructor needs the exact type of the object it is to create [...] 
+          Furthermore [...]you cannot have a pointer to a constructor.
+
+The ORDER in which constructors are called when an object of a derived class is created???
+    - The constructors of any virtual base classes are called first in the order of inheritance.
+    - Non-virtual base class constructors are called next.
+    - The derived class constructor is called last.
+    - The derived class constructor has only access to its own class members.
+    
+Copy Constructor vs Assignment operator??
+      - Copy constructor creates a new object which has the copy of the original object .
+      - A copy constructor is used to declare and initialize an object from another object. 
+      - On the other hand assignment operators does not create any new object. It instead, deals with existing objects.
+      - An assignment operator simply assigns the values of an object to another, member by member.
+
+------->      
+Virtual Destructors :
+    - If the destructor in the base class is not made virtual, then an object that might have been 
+  declared of type base class and holds an instance of child class would simply call 
+  the base class destructor without calling the derived class destructor.
+  
+    - Hence, by making the destructor in the base class virtual, we ensure that 
+    the derived class destructor gets called before the base class destructor.
+    
+    virtual ~a()
+    {
+      printf("\nBase Destructor\n");
+    }
+
+------->
+What are shallow and deep copy?
+      - A shallow copy just copies the values of the data as they are. 
+      Even if there is a pointer that points to dynamically allocated memory, 
+      the pointer in the copy will point to the same dynamically allocated object.
+      
+      - A deep copy creates a copy of the dynamically allocated objects too. 
+      You would need to use a copy constructor and overload an assignment operator for this.
+      
+      Deep Copy - Use Copy Constructor and Overload Assignment Operator.
+      
+
+    
