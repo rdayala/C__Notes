@@ -1,0 +1,33 @@
+
+Inheritance is one of the important feature of OOP which allows us to make hierarchical classifications of classes. 
+
+In this, we can create a general class which defines the most common features. 
+Other more specific classes can inherit this class to define those features that are unique to them. 
+In this case, the classes which inherit from other classes, is referred as derived class.
+
+Single Inheritance : A (parent class) → B (child class)
+Multiple Inheritance : A → C, B → C
+Hierarchical Inheritance : A → B, A → C, A → D
+Multilevel Inheritance : A → B, B → C
+Hybrid Inheritance : A → B, A → C, B → D, C → D
+
+class vehicle
+{
+   int fuel_cap;
+   public:
+      drive();
+};
+
+class car : public vehicle
+{
+   public:
+      roll_windows();
+};
+
+class bike : public vehicle
+{
+   public:
+      kick_start();
+};
+
+
